@@ -9,7 +9,7 @@ const app = express()
 app.use(express.static("uploads"))
 app.use(express.json())
 app.use(cors({
-    origin: "https://client-qzuk.onrender.com",
+    origin: true,
     credentials: true
 }))
 
@@ -27,5 +27,5 @@ app.use((error, req, res, next) => {
 mongoose.connection.once("open", () => {
     console.log("MONGO CONNECT")
 
-    app.listen(5600, console.log("SERVER RUNNING"))
+    app.listen(5000, console.log("SERVER RUNNING"))
 })
