@@ -18,6 +18,8 @@ app.use(cors({
 app.use("/api/auth", require("./routes/auth.routes"))
 app.use("/api/admin", require("./routes/Admin.route"))
 app.use("/api/order", require("./routes/order.route"))
+app.use("/api/msg", require("./routes/Msgs.route"))
+
 
 app.use("*", async (req, res) => {
     res.sendFile(path.join(__dirname, "dist", "index.html"))
