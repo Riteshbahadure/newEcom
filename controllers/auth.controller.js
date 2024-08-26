@@ -16,8 +16,8 @@ exports.registerUser = asyncHandler(async (req, res) => {
     }
     const hashPass = await bcrypt.hash(password, 10)
     await User.create({ ...req.body, password: hashPass, role: "customer" })
-    //send Email
-    // await sendEmail({ to: email, subject: "Register Success", message: `<h1>welcome, ${req.body.name}</h1>` })
+    
+    await sendEmail({ to: email, subject: "Register Success", message: `<h1>welcome, ${req.body.name}</h1>` })
     res.json({ message: `${req.body.name} Register Success` })
 })
 exports.loginUser = asyncHandler(async (req, res) => {
